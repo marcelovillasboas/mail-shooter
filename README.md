@@ -20,12 +20,7 @@ This is a TypeScript Node.js application that reads email addresses from a `.xls
    ```sh
    npm install
 
-4. Configure your email service credentials in the app.ts file:
-    - Update 'your-email-service' with your email service (e.g., 'Gmail', 'Outlook', etc.).
-    - Replace 'your-email@example.com' with your sender email address.
-    - Replace 'your-email-password' with your sender email password or an app-specific password.
-
-5. Configure the environment variables with the following fields:
+4. Configure the environment variables with the following fields:
     ```sh
     MAIL_SERVICE=Gmail
     USER=example@gmail.com
