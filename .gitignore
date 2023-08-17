@@ -1,0 +1,6 @@
+node_modules
+package-lock.json
+image.png
+custom_message.docx
+email_addresses.xlsx
+.env
