@@ -39,6 +39,7 @@ This is a TypeScript Node.js application that reads email addresses from a `.xls
 ## Usage
 
 - Open a terminal and navigate to the project directory.
+- Replace the files to write a new email (image, content)
 - Run the application using the following command:
 
     ```sh

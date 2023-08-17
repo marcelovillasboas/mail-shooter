@@ -16,22 +16,29 @@ async function readCustomMessage (filePath: string): Promise<{ html: string, ima
 }
 
 async function sendEmails (emailAddresses: string[], message: string, images: { [key: string]: Buffer }) {
+  const {
+    MAIL_SERVICE,
+    USER,
+    PASS,
+    SUBJECT,
+    IMAGE_NAME
+  } = process.env
   const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    service: MAIL_SERVICE,
     auth: {
-      user: 'marcelosvillasboas@gmail.com',
-      pass: 'mfljzrjwubbzckmj'
+      user: USER,
+      pass: PASS
     }
   })
 
   for (const row of emailAddresses) {
     const email = Object.values(row)
     const mailOptions = {
-      from: 'marcelosvillasboas@gmail.com',
+      from: USER,
       to: email,
-      subject: 'Example',
+      subject: SUBJECT,
       html: message,
-      attachments: [{ filename: 'image.png', path: path.join(__dirname, 'images', 'image.png') }]
+      attachments: IMAGE_NAME ? [{ filename: IMAGE_NAME, path: path.join(__dirname, 'images', IMAGE_NAME) }] : []
     }
 
     try {
@@ -41,12 +48,15 @@ async function sendEmails (emailAddresses: string[], message: string, images: { 
       console.error(`Error sending email to ${email}:`, error)
     }
   }
-
-  console.log('ja era viado enviou tudo')
 }
 
 async function main () {
-  const filePath = path.join(__dirname, '../email_addresses.xlsx')
+  const {
+    MAILING_FILE_NAME,
+    MAIL_BODY_FILE
+  } = process.env
+  if (!MAILING_FILE_NAME) throw new Error('Missing mailing file name. Review environment variables')
+  const filePath = path.join(__dirname, MAILING_FILE_NAME)
   const emailAddresses = readEmailAddresses(filePath)
 
   if (emailAddresses.length === 0) {
@@ -54,7 +64,8 @@ async function main () {
     return
   }
 
-  const customMessagePath = path.join(__dirname, '../custom_message.docx')
+  if (!MAIL_BODY_FILE) throw new Error('Missing mail body file name. Review environment variables')
+  const customMessagePath = path.join(__dirname, MAIL_BODY_FILE)
   const { html: customMessage, images } = await readCustomMessage(customMessagePath)
 
   await sendEmails(emailAddresses, customMessage, images)
