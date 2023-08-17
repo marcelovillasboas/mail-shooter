@@ -26,17 +26,15 @@ This is a TypeScript Node.js application that reads email addresses from a `.xls
     - Replace 'your-email-password' with your sender email password or an app-specific password.
 
 5. Configure the environment variables with the following fields:
-    ```properties
-MAIL_SERVICE=Gmail
-USER=example@gmail.com
-PASS=xxxxxxxxxx
+    ```sh
+    MAIL_SERVICE=Gmail
+    USER=example@gmail.com
+    PASS=xxxxxxxxxx
 
-SUBJECT=Example
-IMAGE_NAME=image.png
-MAILING_FILE_NAME=email_addresses.xlsx #.xlsx
-MAIL_BODY_FILE=custom_message.docx #docx
-
-
+    SUBJECT=Example
+    IMAGE_NAME=image.png
+    MAILING_FILE_NAME=email_addresses.xlsx #.xlsx
+    MAIL_BODY_FILE=custom_message.docx #docx
 
 ## Usage
 
