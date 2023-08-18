@@ -4,7 +4,7 @@
   "description": "This is a TypeScript Node.js application that reads email addresses from a `.xlsx` file and sends customized email messages to the recipients. The email messages can include formatted content from a `.docx` file and optionally include image attachments.",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx ts-node src/server.ts"
   },
   "repository": {
     "type": "git",
