@@ -1,7 +1,7 @@
 export function getDomain (emailAddress: string): string {
-  const a = emailAddress.split('@')
-  const b = a[1].split('.')[0] as string
-  return domainDictionary[`${b}`]
+  const splitEmailAddress = emailAddress.split('@')
+  const addressSufix = splitEmailAddress[1].split('.')[0] as string
+  return domainDictionary[`${addressSufix}`]
 }
 
 const domainDictionary: Record<string, string> = {
