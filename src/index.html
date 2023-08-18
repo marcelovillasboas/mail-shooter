@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mail Shooter</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+
+  <div class="background"></div>
+
+  <div class="container">
+    <h1>Mail Shooter</h1>
+    <form action="/send-email" method="post" enctype="multipart/form-data">
+      <label for="fromEmail">Enter your email address (from):</label>
+      <input type="email" name="fromEmail" required><br>
+      <span class="hint">Enter your email address for sending</span>
+      <label for="emailPassword">Enter your password:</label>
+      <input type="password" name="emailPassword" required><br>
+      <span class="hint">We won't save any user data in our database</span>
+      <label for="emailSubject">Choose a subject:</label>
+      <input type="text" name="emailSubject" required><br>
+      <label for="xlsxFile">Upload the XLSX file with the addresses list (to):</label>
+      <input type="file" name="xlsxFile" accept=".xlsx" required><br>
+      <label for="docxFile">Select DOCX file with your message body:</label>
+      <input type="file" name="docxFile" accept=".docx" required><br>
+      <label for="imageFile">Attach an image to your message:</label>
+      <input type="file" name="imageFile" accept=".jpg, .jpeg, .png" required><br>
+      <input type="submit" value="Send Emails">
+    </form>
+  </div>
+
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p>Emails sent successfully!</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2023 Mail Shooter App. Developed by Nei.</p>
+  </footer>
+  <script src="./script.js"></script>
+</body>
+</html>
