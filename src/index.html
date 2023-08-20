@@ -30,6 +30,7 @@
       <input type="file" name="imageFile" accept=".jpg, .jpeg, .png" required><br>
       <input type="submit" value="Send Emails">
     </form>
+    <div class="loading-spinner"></div>
   </div>
 
   <div id="successModal" class="modal">
@@ -38,6 +39,13 @@
       <p>Emails sent successfully!</p>
     </div>
   </div>
+
+  <div id="errorModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('errorModal')">&times;</span>
+      <p>Error sending emails. Please try again later.</p>
+    </div>
+  </div>  
 
   <footer>
     <p>© 2023 Mail Shooter App. Developed by Nei.</p>
